@@ -1,0 +1,35 @@
+EC535 Final Project compilation
+
+---------------------------------------------------------
+
+/km/
+Makefile - same as previous labs and should be compiled in the same way.
+
+---------------------------------------------------------
+
+/QT/
+Makefile - followed the directions from lab 5 with the Makefile compiling 
+in the same way. However the include and lib directory contain the libsndfile
+cross compiled object file and header files. These are needed for QT to compile
+successfully.
+The files inside the lib directory should be transfered over to the gumstix 
+board to /usr/lib/ prior to running the QT code.
+
+---------------------------------------------------------
+
+libsndfile
+The sources can be found in the libsndfile-1.0.26.tar.gz and should be cross
+compiled for the gumstix board. The source make files were created with the
+automake and autoconf tools and thus cross compiling should be done with 
+the following configuration.
+
+./configure --prefix=./Arm --build=i386-linux --host=arm-linux
+
+when this is successful should run:
+
+make install
+
+There will be errors with the test cases run after the make is performed,
+these should be ignored because the library object files and header files
+will be successfully created.
+
